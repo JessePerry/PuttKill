@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelScore : MonoBehaviour {
+public class LevelScore : MonoBehaviour
+{
     public int Shots;
     public int SecondsTaken;
     public int ParShots;
@@ -10,7 +11,7 @@ public class LevelScore : MonoBehaviour {
 
     private string[] ranksAndQuotes;
     private DateTime start;
-    
+
     private void Start()
     {
         start = DateTime.UtcNow;
@@ -39,10 +40,10 @@ public class LevelScore : MonoBehaviour {
     {
         if (ranksAndQuotes == null || ranksAndQuotes.Length == 0)
             SetupQuotes();
-        var index = 0; 
+        var index = 0;
         while (index == GameManager.Instance.lastQuoteIndex)
         {
-            index = UnityEngine.Random.Range(0, ranksAndQuotes.Length - 1);
+            index = UnityEngine.Random.Range(0, ranksAndQuotes.Length);
         }
         GameManager.Instance.lastQuoteIndex = index;
         return ranksAndQuotes[index];
@@ -52,10 +53,10 @@ public class LevelScore : MonoBehaviour {
     {
         ranksAndQuotes = new string[]
         {
-             "He who controls the green, controls history.",
-             "I'm just a ball who's good at doing what they do. Killing."  ,
-            "It's easy to forget what a sin is in the middle of the green." ,
-            "Why do we putt, just to suffer?"  
+            "He who controls the putting, controls history.",
+            "I'm just a ball who's good at doing what they do. Killing."  ,
+            "It's easy to forget what a sin is in the middle of the putt." ,
+            "Why do we putt, just to suffer?"
         };
     }
 }

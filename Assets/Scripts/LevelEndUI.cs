@@ -81,7 +81,7 @@ public class LevelEndUI : MonoBehaviour
             QuoteText.text = currentLevelScore.GetQuote();
             QuoteImage.enabled = true;
         }
-        else if (stepsCount == 9)
+        else if (stepsCount == 10)
         {
             GameManager.Instance.GoToNextLevel();
         }

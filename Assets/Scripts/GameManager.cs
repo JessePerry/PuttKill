@@ -72,6 +72,18 @@ public class GameManager : MonoBehaviour
         loadedLevel = Instantiate(Levels[CurrentLevel]);
     }
 
+    internal void PlayerKilled()
+    {
+        ResetCurrentLevel();
+    }
+
+    private void ResetCurrentLevel()
+    {
+        Debug.Log("Reset");
+        Destroy(loadedLevel);
+        loadedLevel = Instantiate(Levels[CurrentLevel]);
+    }
+
     // Update is called once per frame
     void Update()
     {
