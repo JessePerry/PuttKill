@@ -501,8 +501,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Shots: 0
   SecondsTaken: 0
-  ParShots: 3
-  ParSecondsTaken: 5
+  ParShots: 2
+  ParSecondsTaken: 2
 --- !u!114 &114881681240959894
 MonoBehaviour:
   m_ObjectHideFlags: 1

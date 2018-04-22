@@ -56,6 +56,7 @@ MonoBehaviour:
   - {fileID: 1838095351299974, guid: 9d08ae737dbfee14a89a92a1f89162e5, type: 2}
   - {fileID: 1512146775584198, guid: 459e5296f16e0cb418f46d878faba5f7, type: 2}
   - {fileID: 1881253399917568, guid: e443f273156dc774fae681e8f4fbec7e, type: 2}
+  - {fileID: 1954464261335664, guid: 3c52c3fa3d469e848a3e18785a39fa2d, type: 2}
   LevelEndGrid: {fileID: 1116963938180264, guid: 04fee8d69f8313f499b61e72f73093f6,
     type: 2}
   LevelEndUI: {fileID: 1540922530732594, guid: bf185234cf9f50444879c8d420dc6c51, type: 2}
