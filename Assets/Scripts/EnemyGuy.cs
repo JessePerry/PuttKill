@@ -48,7 +48,6 @@ public class EnemyGuy : MonoBehaviour
 
     private void StartChase(Transform target)
     {
-        Debug.Log("StartChase");
         state = EnemyState.Chase;
         currentTargetIndex = 0;
         currentTargetTransform = target;
@@ -56,7 +55,6 @@ public class EnemyGuy : MonoBehaviour
 
     private void StartPatrol()
     {
-        Debug.Log("StartPatrol");
         state = EnemyState.Patrol;
         currentTargetIndex = 0;
         currentTargetTransform = PatrolWaypoints[currentTargetIndex].transform;

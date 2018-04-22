@@ -527,7 +527,7 @@ MonoBehaviour:
   Shots: 0
   SecondsTaken: 0
   ParShots: 4
-  ParSecondsTaken: 30
+  ParSecondsTaken: 10
 --- !u!114 &114594312216660198
 MonoBehaviour:
   m_ObjectHideFlags: 1

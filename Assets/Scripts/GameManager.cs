@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,6 +10,7 @@ public class GameManager : MonoBehaviour
     public GameObject LevelEndGrid;
     public GameObject LevelEndUI;
     public GameObject LevelPlayingUI;
+    public GameObject EndGameUI;
     public int CurrentLevel = 0;
     public bool useDebugScene;
     public int lastQuoteIndex;
@@ -17,7 +19,9 @@ public class GameManager : MonoBehaviour
     private GameObject loadedLevelEndGrid;
     private GameObject loadedLevelEndUI;
     private GameObject loadedLevelPlayingUI;
+    private GameObject loadedEndGameUI;
     private LevelScore lastScore;
+    private List<LevelScore> allScores;
 
     public enum PlayState
     {
@@ -36,6 +40,16 @@ public class GameManager : MonoBehaviour
             return lastScore;
     }
 
+    public List<LevelScore> GetAllScores()
+    {
+        return allScores;
+    }
+
+    public void Reset()
+    {
+        Start();
+    }
+
     private void Awake()
     {
         if (Instance == null)
@@ -46,7 +60,6 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
 
         DontDestroyOnLoad(gameObject);
-        
     }
 
     // Use this for initialization
@@ -62,7 +75,10 @@ public class GameManager : MonoBehaviour
                 Destroy(loadedLevelEndUI);
             if (loadedLevelPlayingUI != null)
                 Destroy(loadedLevelPlayingUI);
-            
+            if (loadedEndGameUI != null)
+                Destroy(loadedEndGameUI);
+
+            allScores = new List<LevelScore>();
             CurrentLevel = 0;
             loadedLevel = Instantiate(Levels[CurrentLevel]);
             loadedLevelPlayingUI = Instantiate(LevelPlayingUI);
@@ -74,7 +90,11 @@ public class GameManager : MonoBehaviour
         Destroy(loadedLevelEndGrid);
         Destroy(loadedLevelEndUI);
         CurrentLevel++;
-        if (CurrentLevel > Levels.Length - 1) CurrentLevel = 0;
+        if (CurrentLevel > Levels.Length - 1)
+        {
+            loadedEndGameUI = Instantiate(EndGameUI);
+            return;
+        }
         loadedLevel = Instantiate(Levels[CurrentLevel]);
         loadedLevelPlayingUI = Instantiate(LevelPlayingUI);
     }
@@ -86,7 +106,6 @@ public class GameManager : MonoBehaviour
 
     private void ResetCurrentLevel()
     {
-        Debug.Log("Reset");
         Destroy(loadedLevel);
         loadedLevel = Instantiate(Levels[CurrentLevel]);
     }
@@ -101,7 +120,7 @@ public class GameManager : MonoBehaviour
     internal void GoToEndLevel()
     {
         lastScore = loadedLevel.GetComponent<LevelScore>();
-        Debug.Log(lastScore.Shots);
+        allScores.Add(lastScore);
         Destroy(loadedLevel);
         Destroy(loadedLevelPlayingUI);
         loadedLevelEndUI = Instantiate(LevelEndUI);
