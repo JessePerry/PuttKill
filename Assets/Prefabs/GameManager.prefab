@@ -60,3 +60,4 @@ MonoBehaviour:
   LevelEndUI: {fileID: 1540922530732594, guid: bf185234cf9f50444879c8d420dc6c51, type: 2}
   CurrentLevel: 0
   useDebugScene: 0
+  lastQuoteIndex: 0
