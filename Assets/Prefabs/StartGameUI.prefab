@@ -39,7 +39,6 @@ GameObject:
   - component: {fileID: 223191715892495456}
   - component: {fileID: 114967162969667406}
   - component: {fileID: 114437184287998808}
-  - component: {fileID: 114596340835668232}
   m_Layer: 5
   m_Name: StartGameUI
   m_TagString: Untagged
@@ -132,17 +131,6 @@ MonoBehaviour:
   m_Text: "You are secret agent Putt-Kill. \n\nYour mission: Infiltrate the deepest
     level of the Putt-Putt Intelligence Facility.\n\nClick and drag the mouse to putt
     and avoid detection.\n\nGood luck! \n(Click to start)"
---- !u!114 &114596340835668232
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1727359123887880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49fa5c8f536b660489ffdae85dc7f01c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114736248760253450
 MonoBehaviour:
   m_ObjectHideFlags: 1
