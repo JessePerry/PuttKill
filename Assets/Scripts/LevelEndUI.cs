@@ -10,6 +10,7 @@ public class LevelEndUI : MonoBehaviour
     private Text LabelsColumnText;
     private Text QuoteText;
     private Image QuoteImage;
+    private Image Panel;
 
     private int stepsCount = 0;
     private LevelScore currentLevelScore;
@@ -26,8 +27,11 @@ public class LevelEndUI : MonoBehaviour
         ActualColumnText.text = "";
         ParColumnText.text = "";
         QuoteText.text = "";
-        QuoteImage = GetComponentInChildren<Image>();
+        var images = GetComponentsInChildren<Image>();
+        QuoteImage = images.FirstOrDefault(x => x.name == "QuoteImage");
         QuoteImage.enabled = false;
+        Panel = images.FirstOrDefault(x => x.name == "Panel");
+        Panel.enabled = false;
         stepsCount = 0;
     }
 
@@ -80,6 +84,7 @@ public class LevelEndUI : MonoBehaviour
         {
             QuoteText.text = currentLevelScore.GetQuote();
             QuoteImage.enabled = true;
+            Panel.enabled = true;
         }
         else if (stepsCount == 10)
         {

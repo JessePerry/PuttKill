@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public GameObject[] Levels;
     public GameObject LevelEndGrid;
     public GameObject LevelEndUI;
+    public GameObject LevelPlayingUI;
     public int CurrentLevel = 0;
     public bool useDebugScene;
     public int lastQuoteIndex;
@@ -15,6 +16,7 @@ public class GameManager : MonoBehaviour
     private GameObject loadedLevel;
     private GameObject loadedLevelEndGrid;
     private GameObject loadedLevelEndUI;
+    private GameObject loadedLevelPlayingUI;
     private LevelScore lastScore;
 
     public enum PlayState
@@ -58,8 +60,12 @@ public class GameManager : MonoBehaviour
                 Destroy(loadedLevelEndGrid);
             if (loadedLevelEndUI != null)
                 Destroy(loadedLevelEndUI);
+            if (loadedLevelPlayingUI != null)
+                Destroy(loadedLevelPlayingUI);
+            
             CurrentLevel = 0;
             loadedLevel = Instantiate(Levels[CurrentLevel]);
+            loadedLevelPlayingUI = Instantiate(LevelPlayingUI);
         }
     }
 
@@ -70,6 +76,7 @@ public class GameManager : MonoBehaviour
         CurrentLevel++;
         if (CurrentLevel > Levels.Length - 1) CurrentLevel = 0;
         loadedLevel = Instantiate(Levels[CurrentLevel]);
+        loadedLevelPlayingUI = Instantiate(LevelPlayingUI);
     }
 
     internal void PlayerKilled()
@@ -96,6 +103,7 @@ public class GameManager : MonoBehaviour
         lastScore = loadedLevel.GetComponent<LevelScore>();
         Debug.Log(lastScore.Shots);
         Destroy(loadedLevel);
+        Destroy(loadedLevelPlayingUI);
         loadedLevelEndUI = Instantiate(LevelEndUI);
         loadedLevelEndGrid = Instantiate(LevelEndGrid);
         loadedLevelEndUI.GetComponent<LevelEndUI>().Reset();

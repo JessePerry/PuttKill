@@ -58,6 +58,8 @@ MonoBehaviour:
   LevelEndGrid: {fileID: 1116963938180264, guid: 04fee8d69f8313f499b61e72f73093f6,
     type: 2}
   LevelEndUI: {fileID: 1540922530732594, guid: bf185234cf9f50444879c8d420dc6c51, type: 2}
+  LevelPlayingUI: {fileID: 1086421727067618, guid: 24ab4700130b4fc43bbb6b80313ad4e0,
+    type: 2}
   CurrentLevel: 0
   useDebugScene: 0
   lastQuoteIndex: 0
