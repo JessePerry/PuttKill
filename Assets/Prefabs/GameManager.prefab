@@ -63,6 +63,8 @@ MonoBehaviour:
   LevelPlayingUI: {fileID: 1086421727067618, guid: 24ab4700130b4fc43bbb6b80313ad4e0,
     type: 2}
   EndGameUI: {fileID: 1691102514634212, guid: 4a262520229434943b222e0f6bef0fa3, type: 2}
+  StartGameUI: {fileID: 1727359123887880, guid: 99a93d641850875419e21834316e0167,
+    type: 2}
   CurrentLevel: 0
   useDebugScene: 0
   lastQuoteIndex: 0

@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public GameObject LevelEndUI;
     public GameObject LevelPlayingUI;
     public GameObject EndGameUI;
+    public GameObject StartGameUI;
     public int CurrentLevel = 0;
     public bool useDebugScene;
     public int lastQuoteIndex;
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour
     private GameObject loadedLevelEndUI;
     private GameObject loadedLevelPlayingUI;
     private GameObject loadedEndGameUI;
+    private GameObject loadedStartGameUI;
     private LevelScore lastScore;
     private List<LevelScore> allScores;
 
@@ -77,11 +79,11 @@ public class GameManager : MonoBehaviour
                 Destroy(loadedLevelPlayingUI);
             if (loadedEndGameUI != null)
                 Destroy(loadedEndGameUI);
+            if (loadedStartGameUI != null)
+                Destroy(loadedStartGameUI);
 
+            loadedStartGameUI = Instantiate(StartGameUI);
             allScores = new List<LevelScore>();
-            CurrentLevel = 0;
-            loadedLevel = Instantiate(Levels[CurrentLevel]);
-            loadedLevelPlayingUI = Instantiate(LevelPlayingUI);
         }
     }
 
@@ -115,6 +117,13 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R) || (Input.GetMouseButtonUp(0) && loadedEndGameUI != null))
             Start();
+        if ((Input.GetMouseButtonUp(0) && loadedStartGameUI != null))
+        {
+            CurrentLevel = 0;
+            loadedLevel = Instantiate(Levels[CurrentLevel]);
+            loadedLevelPlayingUI = Instantiate(LevelPlayingUI);
+            Destroy(loadedStartGameUI);
+        }
     }
 
     internal void GoToEndLevel()
